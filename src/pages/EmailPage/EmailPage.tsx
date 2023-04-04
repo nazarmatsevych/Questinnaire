@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { RoundedInput } from '../../components/ui/RoundedInput';
 import { useNavigate } from 'react-router-dom';
 import './EmailPage.scss';
+import { isValidEmail } from '../../helpers/validateEmail';
 import { RoundedButton } from '../../components/ui/RoundedButton';
 
 export function EmailPage() {
@@ -9,10 +10,8 @@ export function EmailPage() {
   const [email, setEmail] = useState('');
   const [validEmail, setValidEmail] = useState(true);
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   function testEmail() {
-    if (emailRegex.test(email)) {
+    if (isValidEmail(email)) {
       navigate('/thankyou');
     } else {
       setValidEmail(false);
@@ -24,7 +23,7 @@ export function EmailPage() {
       <h1 className="email__title">
         Enter your email to see how you can grow with Nebula
       </h1>
-      <form action="#" onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={(e) => e.preventDefault()}>
         <RoundedInput
           required
           placeholder="Your email"

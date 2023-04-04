@@ -6,12 +6,14 @@ interface SurveyState {
   currentQuestionId: number | string;
   answers: Answer[];
   nextQuestionId: number | string;
+  screenHistory: Array<number | string>;
 }
 
 const initialState: SurveyState = {
   currentQuestionId: questions[0].id,
   answers: [],
   nextQuestionId: 1,
+  screenHistory: [],
 };
 
 export const surveySlice = createSlice({
@@ -32,11 +34,21 @@ export const surveySlice = createSlice({
         state.answers.splice(existingAnswerIndex, 1, action.payload);
       }
 
+      state.screenHistory.push(state.currentQuestionId);
       state.currentQuestionId = action.payload.nextQuestionId;
+    },
+
+    moveBack: (state) => {
+      if (state.screenHistory.length > 0) {
+        const previousQuestionId = state.screenHistory.pop();
+        if (previousQuestionId !== undefined) {
+          state.currentQuestionId = previousQuestionId;
+        }
+      }
     },
   },
 });
 
-export const { answerQuestion, setCurrentId } = surveySlice.actions;
+export const { answerQuestion, setCurrentId, moveBack } = surveySlice.actions;
 
 export default surveySlice.reducer;

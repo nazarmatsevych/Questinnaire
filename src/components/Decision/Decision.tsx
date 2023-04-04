@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ReactComponent as HeartAndHead } from '../../assets/images/heardandhead.svg';
 import { ReactComponent as Head } from '../../assets/images/head.svg';
 import { ReactComponent as Heart } from '../../assets/images/heart.svg';
-import { setCurrentId } from '../../features/questionsSlice';
+import { moveBack, setCurrentId } from '../../features/questionsSlice';
 import './Decision.scss';
 import { RoundedButton } from '../ui/RoundedButton';
 
@@ -14,8 +14,9 @@ export const Decision = () => {
   const { zodiac, decision } = useAppSelector((state) => state.user);
 
   const handleBack = () => {
-    dispatch(setCurrentId(1));
-    navigate('/question/1');
+    dispatch(setCurrentId(6));
+    dispatch(moveBack());
+    navigate('/question/6');
   };
 
   useEffect(() => {

@@ -83,9 +83,9 @@ export const questions: Question[] = [
     id: 6,
     text: 'Do you make decisions with your head or your heart?',
     answers: [
-      { id: 1, text: 'Heart', nextQuestionId: 'heart', screenId: 6 },
-      { id: 2, text: 'Head', nextQuestionId: 'head', screenId: 6 },
-      { id: 3, text: 'Both', nextQuestionId: 'heartAndHead', screenId: 6 },
+      { id: 1, text: 'Heart', nextQuestionId: 7, screenId: 6 },
+      { id: 2, text: 'Head', nextQuestionId: 7, screenId: 6 },
+      { id: 3, text: 'Both', nextQuestionId: 7, screenId: 6 },
     ],
   },
 ];

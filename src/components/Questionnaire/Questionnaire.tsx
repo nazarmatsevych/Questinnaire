@@ -20,55 +20,39 @@ export const Questionnaire: FC = () => {
     (state) => state.user,
   );
 
+  const MAX_QUESTION_ID = 7;
+
   const age = calculateAge(dateOfBirth);
 
   const { id = 1 } = useParams<{ id: string }>();
 
-  const currentQuestionIdNew = parseInt(String(id), 10);
-
-  const currentQuestion = useAppSelector((state) => {
-    const question = questions.find((q) => q.id === currentQuestionIdNew);
-    if (question === null || question === undefined)
-      throw new Error('Questionnaire not found');
-    return question;
-  });
-
   const { currentQuestionId } = useAppSelector((state) => state.answers);
 
+  const currentQuestion = questions.find((q) => q.id === currentQuestionId);
+
   const handleNext = (answer: Answer) => {
-    if (answer.text === 'Single' && answer.screenId === 1) {
-      dispatch(setIsSingle(true));
-    } else if (answer.text !== 'Single' && answer.screenId === 1) {
-      dispatch(setIsSingle(false));
-    }
-
-    if (
-      (answer.screenId === 2 && answer.text === 'Yes') ||
-      (answer.screenId === 3 && answer.text === 'Yes')
-    ) {
-      dispatch(setIsParent(true));
-    } else if (
-      (answer.screenId === 2 && answer.text === 'No') ||
-      (answer.screenId === 3 && answer.text === 'No')
-    ) {
-      dispatch(setIsParent(false));
-    }
-
-    if (answer.screenId === 6 && answer.text === 'Heart') {
-      dispatch(setDecision('Heart'));
-    } else if (answer.screenId === 6 && answer.text === 'Head') {
-      dispatch(setDecision('Head'));
-    } else if (answer.screenId === 6 && answer.text === 'Both') {
-      dispatch(setDecision('Both'));
-    }
     dispatch(answerQuestion(answer));
+    switch (answer.screenId) {
+      case 1:
+        dispatch(setIsSingle(answer.text === 'Single'));
+        break;
+      case 2:
+      case 3:
+        dispatch(setIsParent(answer.text === 'Yes'));
+        break;
+      case 6:
+        dispatch(setDecision(answer.text));
+        break;
+      default:
+        break;
+    }
   };
 
   useEffect(() => {
-    +currentQuestionId <= 6
+    currentQuestionId !== MAX_QUESTION_ID
       ? navigate(`/question/${currentQuestionId}`)
       : navigate('/decision');
-  }, [currentQuestionId]);
+  }, [currentQuestionId, navigate]);
 
   return (
     <div className="questionnaire">
@@ -91,10 +75,10 @@ export const Questionnaire: FC = () => {
             their relationship.
           </p>
         )}
-        {currentQuestion.text}
+        {currentQuestion?.text}
       </h1>
       <div className="questionnaire__btns-wrapper">
-        {currentQuestion.answers.map((answer) => (
+        {currentQuestion?.answers.map((answer) => (
           <RoundedButton
             key={answer.id}
             size={'large'}

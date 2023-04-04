@@ -22,13 +22,14 @@ export function DateOfBirth() {
   const handleNavigate = () => {
     if (!selectedYear.length && !selectedDay.length && !selectedMonth.length) {
       setIsEmptyField(true);
-    } else {
-      const preparedDate = formatDate(
-        `${selectedYear}-${selectedMonth}-${selectedDay}`,
-      );
-      dispatch(setDateOfBirth(preparedDate));
-      navigate('/connection');
+      return;
     }
+
+    const preparedDate = formatDate(
+      `${selectedYear}-${selectedMonth}-${selectedDay}`,
+    );
+    dispatch(setDateOfBirth(preparedDate));
+    navigate('/connection');
   };
 
   useEffect(() => {
