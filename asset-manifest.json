@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Questinnaire/static/css/main.69076824.css",
-    "main.js": "/Questinnaire/static/js/main.0fde072b.js",
+    "main.js": "/Questinnaire/static/js/main.144f247d.js",
     "static/media/female_gender.svg": "/Questinnaire/static/media/female_gender.a974fc1eb34034c571ff048cf894171d.svg",
     "static/media/male_gender.svg": "/Questinnaire/static/media/male_gender.e2771cbd3e3040bc105350358a118e8c.svg",
     "static/media/logo_white.svg": "/Questinnaire/static/media/logo_white.7f6d9e744b32288598be48e329e5c4a3.svg",
@@ -15,10 +15,10 @@
     "static/media/backArrowBlack.svg": "/Questinnaire/static/media/backArrowBlack.fcf8798731565557fb8daa2f867dca7b.svg",
     "static/media/backArrowWhite.svg": "/Questinnaire/static/media/backArrowWhite.59212090a057fa65afe2919b4c8a58fb.svg",
     "main.69076824.css.map": "/Questinnaire/static/css/main.69076824.css.map",
-    "main.0fde072b.js.map": "/Questinnaire/static/js/main.0fde072b.js.map"
+    "main.144f247d.js.map": "/Questinnaire/static/js/main.144f247d.js.map"
   },
   "entrypoints": [
     "static/css/main.69076824.css",
-    "static/js/main.0fde072b.js"
+    "static/js/main.144f247d.js"
   ]
 }
