@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body,
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 328px;
+}
+
+.App__header {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+  @media (min-width: 1024px) {
+    margin-top: 15px;
+  }
+}
+
+.App-link {
+  color: #61dafb;
+}
+

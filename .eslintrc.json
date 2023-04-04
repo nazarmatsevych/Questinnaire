@@ -1,0 +1,55 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "standard-with-typescript",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "overrides": [
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "import"
+    ],
+    "rules": {
+        "@typescript-eslint/prefer-nullish-coalescing": "off",
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "@typescript-eslint/no-confusing-void-expression": "off",
+        "@typescript-eslint/consistent-type-imports": "off",
+        "comma-dangle": ["error", "always-multiline"],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/space-before-function-paren": "off",
+        "@typescript-eslint/semi": "off",
+        "@typescript-eslint/dot-notation": "error",
+        "linebreak-style": "off",
+        "prettier/prettier": "error",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/ban-types": [
+            "error",
+            {
+                "extendDefaults": true,
+                "types": {
+                    "{}": false
+                }
+            }
+        ],
+        "react-hooks/exhaustive-deps": "off",
+        "object-shorthand": "error",
+        "no-console": "warn"
+    }
+}

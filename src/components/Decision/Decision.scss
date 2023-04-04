@@ -1,0 +1,24 @@
+.decision {
+  margin-top: 32px;
+
+  &__image {
+
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 16px;
+    color: #FBFBFF;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  &__zodiac {
+    color: #F2C94C;
+  }
+
+  &__buttons-wrapper {
+    display: flex;
+    gap: 10px;
+  }
+}

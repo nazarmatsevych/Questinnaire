@@ -1,0 +1,43 @@
+.rounded-select {
+  position: relative;
+  width: 220px;
+  height: 39px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+
+  & select {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #4F4F4F;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #C6C6C6;
+    border-radius: 20px;
+    padding-left: 18px;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 5px 0 5px;
+    border-color: #333333 transparent transparent transparent;
+  }
+
+  &__placeholder {
+    color: red;
+  }
+}
+
+

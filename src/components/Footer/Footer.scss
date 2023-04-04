@@ -1,0 +1,15 @@
+.footer {
+  position: fixed;
+  top: 598px;
+  width: 328px;
+  &__title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #4F4F4F;
+
+    &--white {
+      color: #CDCDCD;
+    }
+  }
+}
